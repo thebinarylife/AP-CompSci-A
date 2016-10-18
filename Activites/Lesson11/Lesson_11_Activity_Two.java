@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-
 public class Lesson_11_Activity_Two {
 
 	public static void main(String[] args) {
