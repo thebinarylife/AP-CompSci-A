@@ -29,7 +29,7 @@ public class Lesson_12_Activity_Three {
     	if(score > 100)
     		System.out.println("Not Valid");
     	
-    	if(score > 100)
+    	if(score < 0)
     		System.out.println("Not Valid");
     	
     	if(score <= 100 && score >= 0)
