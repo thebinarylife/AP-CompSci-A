@@ -8,7 +8,7 @@
 
 import java.util.Scanner;
 
-class Lesson_12_Activity_One {
+public class Lesson_12_Activity_One {
     public static void main(String[] args)
     {
     	// Create scanner object so we can take user input
