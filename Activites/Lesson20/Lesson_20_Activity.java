@@ -68,48 +68,63 @@ public class Lesson_20_Activity
 					incorrect = 1;
 				else
 				{
+					// If the inputs were correct..
 					if(incorrect != 1){
+						// Check to see if our east and west variables are 0, if they are we are just going to set the value to the number inputted, just to give it a value
 						if(east == 0)
 							east = latLongInput;
 						if(west == 0)
 							west = latLongInput;
 						
+						// Now that we know that those are not default values, we check to see if it is further than the previous "fartest east/west" and set it if
+						// it is
+						// This is checked by seeing if the input value is less then or greater than the set farthest south/north
 						if(latLongInput < west)
 							west = latLongInput;
 						if(latLongInput > east)
 							east = latLongInput;
 					}
+					// Otherwise just keep incorrect at 1
 					else
 						incorrect = 1;
 					
 				}
+				// If something was incorrect, tell them and then start from step 1 again
 				if(incorrect == 1)
 				{
 					System.out.println("Incorrect Latitude or Longitude");
+					// Set the flag varibale back to 0 to start the first part again, and set incorrect to 0 this way that we make sure it is not automatically deemed incorrect on the next run
 					flag = 0;
 					incorrect = 0;
 				}
 				else
 				{
+					// Increment the flag to get to the next step
 					flag++;
 				}
 				
 			}
+			// If our flag variable is 2
 			else if(flag == 2)
 			{
+				// Ask if they want to input another location, answer will be 0 or 1
+				// If it's zero we know that they will automatically leave the loop so...
 				System.out.println("Would you like to enter another location?");
 				option = scan.nextDouble();
 				
+				// We check to see if the answer is 1, and if it is we start back at the first step by setting the flag variable to 0
 				if(option == 1)
 					flag = 0;
 			}
 		}
-		
+		// Print values
 		System.out.println("Farthest North: " + north);
 		System.out.println("Farthest South: " + south);
 		System.out.println("Farthest East: " + east);
 		System.out.println("Farthest West: " + west);
 		
+		
+		// Ignore
 		scan.close();
 		
 	}
