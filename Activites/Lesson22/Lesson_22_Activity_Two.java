@@ -12,7 +12,7 @@ public class Lesson_22_Activity_Two
         // Get the length of the string so that we can use it in the while loop
         int i = s.length();
         // This will keep track of how many times we have iterated through the while loop
-        int iter = 0;'
+        int iter = 0;
         // While the number of times we have iteratted through the while loop is less than the length of the string
         while(iter < i)
         {
