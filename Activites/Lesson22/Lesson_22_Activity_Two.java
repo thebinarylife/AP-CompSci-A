@@ -13,7 +13,7 @@ public class Lesson_22_Activity_Two
         int i = s.length();
         // This will keep track of how many times we have iterated through the while loop
         int iter = 0;'
-        // While the number of times we have iteratted through the while loop is less than the length of the string...
+        // While the number of times we have iteratted through the while loop is less than the length of the string
         while(iter < i)
         {
             // Create a String that will hold all of the indents
@@ -31,7 +31,7 @@ public class Lesson_22_Activity_Two
             
             // Print the idents and the character at the number correct location of the string
             // IMPORTANT we increase the iter variable AFTER we get the character at the specified location because charAt(int i) starts at 0 so if we incremented it before, the number would end up being one too high
-            // For example, if we put in Hello, it would print e,   l,      l,          o, and then throw an error because we are trying to get a character that doesn't exist.
+            // For example, if we put in Hello, it would print e,   l,      l,          o, and then throw an error because we are trying to get a character that does not exist.
             System.out.println(indent + s.charAt(iter));
             // Increment our iteration variable by 1
             iter++;
