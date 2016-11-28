@@ -8,7 +8,9 @@ class Lesson_24_Activity_One {
     
 	public static void main(String[] args)
 	{
+		// Create a variable to count how many times we have iterated through the loop
 		int iter = 0;
+		// Start i at 23, and incrememnt it by one until it hits 90
 		for(int i = 23; i < 90; i++)
 		{
 			iter++;
