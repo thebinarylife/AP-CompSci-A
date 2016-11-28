@@ -21,8 +21,10 @@ class Lesson_30_Activity {
 	
 	public static void main(String[] args)
 	{
+		// Start the loop at 0 and incrememnt it until it is equal to one less the length
 		for(int i = 0; i < list.length; i++)
 		{
+			// If the element contains a space, replace the space with nothing
 			if(list[i].contains(" "))
 				list[i] = list[i].replace(" ", "");
 		}
