@@ -32,18 +32,26 @@ class Lesson_24_Activity_Three {
 		Scanner scan = new Scanner(System.in);
 		int num = scan.nextInt();
 		
+		// If the number is less than 0 or greater than 100
 		if(num < 0 || num > 100)
 		{
+			// Print error
 			System.out.println("error");
 		}
+		// Otherwise
 		else
 		{
+			// Keep track of the number of times the loop has been iterated through
 			int iter = 0;
+			// Start the number at the number given by user. Stop when the number hits 100, and increment by 1
 			for(int i = num; i < 101; i++)
 			{
+				// Increment the iteration by 1
 				iter++;
+				// If it is divisible by 20 print it on another line
 				if(iter % 20 == 0)
 					System.out.println(i+ " ");
+				// Otherwise print it on the same line
 				else
 					System.out.print(i + " ");
 			}
