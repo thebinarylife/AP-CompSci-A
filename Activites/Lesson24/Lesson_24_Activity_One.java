@@ -13,13 +13,17 @@ class Lesson_24_Activity_One {
 		// Start i at 23, and incrememnt it by one until it hits 90
 		for(int i = 23; i < 90; i++)
 		{
+			// Increment the iteration by 1
 			iter++;
-			
+			// Now we have to see if the number will be printed on the same line
+			// If the iteration number is divisible by 10
 			if(iter % 10 == 0)
 			{
+				// Print on a new line
 				System.out.println(i + " ");
 			} else
 			{
+				// If not print on the same line
 				System.out.print(i + " ");
 			}
 			
