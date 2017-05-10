@@ -10,6 +10,9 @@ public class Digits
 	
 	public Digits(int num)
 	{
+		if(num == 0)
+			digitList.add(num);
+		
 		digitList = new ArrayList<>();
 		while(num != 0)
 		{
