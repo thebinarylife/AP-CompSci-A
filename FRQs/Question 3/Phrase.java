@@ -36,7 +36,7 @@ public class Phrase
 		while(findNthOccurence(str, occurrence) != -1)
 			occurrence++;
 		
-		return findNthOccurence(str, occurrence - 1);
+		return (occurence - 1 == 0) ? -1 : findNthOccurence(str, occurrence - 1);
 	}
 
 }
