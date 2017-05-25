@@ -10,10 +10,10 @@ public class Digits
 	
 	public Digits(int num)
 	{
+		digitList = new ArrayList<>();
 		if(num == 0)
 			digitList.add(num);
 		
-		digitList = new ArrayList<>();
 		while(num != 0)
 		{
 			digitList.add(0, num % 10);
