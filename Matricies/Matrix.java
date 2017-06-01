@@ -1,14 +1,14 @@
 public class Matrix 
 {
   private int[][] matrix;
-  private int rows;
-  private int cols;
+  private final int ROWS;
+  private final int COLS;
   
   public Matrix(int rows, int cols, int[][] matrix)
   {
     this.matrix = matrix;
-    this.rows = rows;
-    this.cols = cols;
+    this.ROWS = rows;
+    this.COLS = cols;
   }
   
   
@@ -22,6 +22,8 @@ public class Matrix
         matrix[x][y] = 0;
       }
     }
+    
+    this(rows, cols, matrix);
   }
 
 }
