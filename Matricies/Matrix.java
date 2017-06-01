@@ -25,5 +25,17 @@ public class Matrix
     
     this(rows, cols, matrix);
   }
+  
+  /**
+  * Sets specified location to specified value.
+  * x and y start at 0!!
+  */
+  public void set(int x, int y, int value)
+  {
+    if(x > ROWS.length - 1 || y > COLS.length - 1)
+      return;
+    
+    matrix[x][y] = value;
+  }
 
 }
