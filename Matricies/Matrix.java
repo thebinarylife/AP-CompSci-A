@@ -1,51 +1,54 @@
-public class Matrix 
+import java.util.Scanner;
+
+/** Copyright BinaryLife Design & Dev. To Present
+All rights reserved
+*/
+
+public class Matrix
 {
-	private int[][] matrix;
+	private String name;
 	
-	private final int ROWS;
-	private final int COLS;
-
-	public Matrix(int rows, int cols, int[][] matrix)
-	{
-		this.matrix = matrix;
-		this.ROWS = rows;
-		this.COLS = cols;
-	}
-
-	public Matrix(int rows, int cols)
-	{
-		int[][] matrix = new int[rows][cols];
-		for (int x = 0; x < rows; x++)
-		{
-			for (int y = 0; y < cols; y++)
-			{
-				matrix[x][y] = 0;
-			}
-		}
-
-		this.matrix = matrix;
-		this.ROWS = rows;
-		this.COLS = cols;
-	}
+	private double[][] matrix;
+	private final int ROWS, COLS;
 	
-	public boolean contains(int value)
+	public Matrix(String name, int rows, int cols, boolean fill)
 	{
-		for(int[] col : matrix)
-			for(int val : col)
-				if(val == value)
-					return true;
+		this.name = name;
 		
-		return false;
+		this.ROWS = rows;
+		this.COLS = cols;
+		matrix = new double[ROWS][COLS];
+		
+		if(fill)
+			fillMatrix();
+	}
+	
+	private void fillMatrix()
+	{
+		System.out.println("Please input all values, ((0,0) (0,1) (1,0) etc...)");
+		Scanner scanner = Main.scanner;
+		for(int i = 0; i < ROWS; i++)
+			for(int j = 0; j < COLS; j++)
+			{
+				System.out.println("Row: " + i + " Column: " + j);
+				matrix[i][j] = scanner.nextDouble();
+			}
+		
+	}
+	
+	public boolean isCompatible(Matrix matrix)
+	{
+		return COLS == matrix.getRows();
 	}
 	
 	public int getColumns()
 	{
 		return COLS;
 	}
-	 
-	public int[][] getRawMatrix()
+	
+	public String getName()
 	{
-		return matrix;
+		return name;
 	}
 	
 	public int getRows()
@@ -53,17 +56,60 @@ public class Matrix
 		return ROWS;
 	}
 	
-	public int getValue(int x, int y)
+	public double getValue(int row, int col)
 	{
-		return matrix[x][y];
+		return matrix[row][col];
 	}
-
-	public void set(int x, int y, int value)
+	
+	public Matrix multiply(int coefficient)
 	{
-		if (x > ROWS - 1 || y > COLS- 1)
+		Matrix matrix = new Matrix(name + "x" + coefficient, ROWS, COLS, false);
+		for(int y = 0; y < ROWS; y++)
+			for(int x = 0; x < COLS; x++)
+				matrix.set(y, x, getValue(y, x) * coefficient);
+		return matrix;
+	}
+	
+	public Matrix multiply(Matrix mtrx)
+	{
+		if(!isCompatible(mtrx))
+			return null;
+		
+		Matrix mat = new Matrix(name + "x" + mtrx.getName(), mtrx.getRows(), mtrx.getColumns(), false);
+		for(int i = 0; i <  ROWS; i++)
+		{
+			
+			for(int col = 0; col < mtrx.getColumns(); col++)
+			{
+				int sum = 0;
+				for(int row = 0; row < mtrx.getRows(); row++)
+				{
+					sum += mtrx.getValue(row, col) * getValue(i, row);
+				}
+				mat.set(i, col, sum);
+			}
+		}
+		
+		return mat;
+	}
+	
+	public void printMatrix()
+	{
+		for(int i = 0; i < ROWS; i++)
+			for(int j = 0; j < COLS; j++)
+			{
+				System.out.print(getValue(i, j) + " ");
+				if((j + 1) % COLS == 0)
+					System.out.print("\n");
+			}
+	}
+	
+	public void set(int row, int col, double value)
+	{
+		if(row > ROWS - 1 || col > COLS - 1)
 			return;
-
-		matrix[x][y] = value;
+		
+		matrix[row][col] = value;
 	}
 
 }
